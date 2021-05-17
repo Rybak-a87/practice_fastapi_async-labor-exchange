@@ -22,10 +22,8 @@ class UserService(BaseService):
 
     async def get_user_by_id(self, id: int) -> UserModel:
         """Вывод пользователя по id"""
-        print("----")
-        query = self.user_db.select().where(self.user_db.c.id == id).first()
+        query = self.user_db.select().where(self.user_db.c.id == id)
         user = await self.database.fetch_one(query=query)
-        print(user)
         if user is None:
             return None
         return UserModel.parse_obj(user)

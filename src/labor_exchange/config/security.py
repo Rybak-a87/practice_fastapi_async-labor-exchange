@@ -32,7 +32,7 @@ def create_access_token(data: dict) -> str:
 def decode_access_token(token: str):
     """чтение токена"""
     try:
-        encoded_jwt = jwt.encode(token, SECRET_KEY, algorithm=ALGORITHM)
+        encoded_jwt = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
     except jwt.JWSError:
         return None
     return encoded_jwt

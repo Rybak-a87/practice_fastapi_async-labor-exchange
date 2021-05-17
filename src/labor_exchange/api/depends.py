@@ -6,12 +6,18 @@ from fastapi import Depends, HTTPException, status
 from ..config.security import JWTBearer, decode_access_token
 from ..database.conf_db import database
 from ..services.users import UserService
+from ..services.jobs import JobService
 from ..models.users import UserModel
 
 
 def get_user_service() -> UserService:
-    """возвращает сервис"""
+    """возвращает сервис пользователя"""
     return UserService(database=database)
+
+
+def get_job_service() -> JobService:
+    """возвращает сервис вакансий"""
+    return JobService(database=database)
 
 
 async def get_current_user(

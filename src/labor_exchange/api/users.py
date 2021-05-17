@@ -49,7 +49,6 @@ async def update_user(
     ## Обновление данных пользователя
     """
     # если пользователь пытается изменить нек себя
-    print("1")
     old_user = await user_service.get_user_by_id(id=id)
     if old_user is None or old_user.email != current_user.email:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Not found user")
