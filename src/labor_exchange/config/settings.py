@@ -6,9 +6,13 @@
 #
 #
 # class Settings(BaseSettings):
-#     server_host: str = "127.0.0.1"
-#     server_port: int = 8000
-#     database_url: str = "postgresql://user:password@localhost:80/name_db"
+#     SERVER_HOST: str = "127.0.0.1"
+#     SERVER_PORT: int = 8000
+#     DATABASE_URL: str = "postgresql://user:password@localhost:80/name_db"
+
+#     ACCESS_TOKEN_EXPIRE_MINUTES = 60
+#     ALGORITHM = "HS256"
+#     SECRET_KEY = "5STetuomLYYJWJeQ4GI3Wcb_O26zBSBPHaeZ-f_pMYk"
 #
 #
 # settings = Settings(
@@ -28,4 +32,7 @@ DATABASE_URL = config(
     cast=str,    # преобразовывать переменные в строку
     default="postgresql://user:password@127.0.0.1:80/name_db"    # значение переменной по умолчанию
 )
+ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ALGORITHM = "HS256"
+SECRET_KEY = config("EE_SECRET_KEY", cast=str, default="5STetuomLYYJWJeQ4GI3Wcb_O26zBSBPHaeZ-f_pMYk")
 # --- 2ой способ

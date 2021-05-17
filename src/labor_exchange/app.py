@@ -2,14 +2,20 @@ from fastapi import FastAPI
 import uvicorn
 
 from src.labor_exchange.database.conf_db import database
+from src.labor_exchange.api import router
 
 
-app = FastAPI()
+app = FastAPI(title="Биржа труда")
+app.include_router(router=router)
 
 
 @app.get("/")
 async def home_page():
-    return {"message": "Hello! This is application Labor Exchange."}
+    message = {
+        "author": "Rybak Alexander",
+        "message": "Hello! This is application Labor Exchange."
+            }
+    return message
 
 
 # подключение приложения к базе данных

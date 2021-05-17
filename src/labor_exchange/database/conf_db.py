@@ -2,8 +2,8 @@
 # подключение к базе данных
 # ---
 from databases import Database
-from sqlalchemy import create_engine, MetaData
-# from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine#, MetaData
+from sqlalchemy.ext.declarative import declarative_base
 
 from ..config.settings import DATABASE_URL
 
@@ -16,7 +16,7 @@ engine = create_engine(    # только для синхронных запро
 )
 
 # --- 1ый способ
-# Base = declarative_base()
+Base = declarative_base()
 
 # --- 2ой способ
-metadata = MetaData()
+# metadata = MetaData()
